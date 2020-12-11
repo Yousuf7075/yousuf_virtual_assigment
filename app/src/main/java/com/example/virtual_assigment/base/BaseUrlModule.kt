@@ -10,5 +10,5 @@ class BaseUrlModule {
     @Singleton
     @Provides
     @MainApiUrl
-    fun provideBaseUrl():String = ""
+    fun provideBaseUrl():String = " https://recruitment.fisdev.com/"
 }

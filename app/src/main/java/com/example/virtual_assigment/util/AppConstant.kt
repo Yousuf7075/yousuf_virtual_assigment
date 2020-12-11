@@ -9,6 +9,7 @@ object AppConstant {
 
     const val USER_AUTH = "token"
     const val USER_ID = "user_id"
+    const val USER_TYPE = "user_type"
     const val PASSWORD = "password"
     const val USER_NAME = "username"
     const val NAME = "name"
