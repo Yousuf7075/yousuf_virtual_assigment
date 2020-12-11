@@ -8,6 +8,7 @@ import com.example.virtual_assigment.base.BaseActivity
 import com.example.virtual_assigment.databinding.ActivityAuthBinding
 import com.example.virtual_assigment.network.wrapper.ApiResponse
 import com.example.virtual_assigment.network_model.AuthRequest
+import com.example.virtual_assigment.util.ScreenNavigator
 import timber.log.Timber
 
 class AuthActivity : BaseActivity<ActivityAuthBinding>() {
@@ -32,12 +33,13 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
         viewModel.userAuth(authRequest).observe(this, Observer {apiResponse->
             when(apiResponse){
                 is ApiResponse.Success->{
-                    Timber.e(apiResponse.data.toString())
                     if (apiResponse.data.success){
-                        //
+                        ScreenNavigator.navigateToInformationCollectActivity(this)
                     }
                 }
-                is ApiResponse.Progress->{}
+                is ApiResponse.Progress->{
+                    showProgressBar(true, dataBinding.progressBar)
+                }
                 is ApiResponse.Failure->{
                     Timber.e(apiResponse.errorMessage.localizedMessage)
                 }
