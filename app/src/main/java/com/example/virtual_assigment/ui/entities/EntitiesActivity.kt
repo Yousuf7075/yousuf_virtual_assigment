@@ -1,6 +1,8 @@
 package com.example.virtual_assigment.ui.entities
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.R
@@ -16,6 +18,8 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
 
     override fun layoutRes(): Int = R.layout.activity_entities
 
+    private val fileRequestCode = 123
+
     private lateinit var viewModel: EntitiesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +27,28 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
         dataBinding.lifecycleOwner
         viewModel = ViewModelProvider(this, viewModelFactory).get(EntitiesViewModel::class.java)
 
+        dataBinding.btnAddFile.setOnClickListener {
+            selectFile()
+        }
+
         dataBinding.btnSubmit.setOnClickListener {
             postEntities()
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == fileRequestCode){
+            val filepath: Uri = data?.data!!
+            Timber.e(filepath.toString())
+        }
+    }
+
+    private fun selectFile() {
+        val intent = Intent()
+        intent.type = "application/pdf"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Pdf"), fileRequestCode)
     }
 
     private fun postEntities() {
