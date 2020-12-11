@@ -6,8 +6,8 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.virtual_assigment.helper.SharedPrefHelper
 import com.example.virtual_assigment.network.wrapper.ApiResponse
-import com.example.virtual_assigment.network_model.AuthRequest
-import com.example.virtual_assigment.network_model.AuthResponse
+import com.example.virtual_assigment.network_model.auth.AuthRequest
+import com.example.virtual_assigment.network_model.auth.AuthResponse
 import com.example.virtual_assigment.util.AbsentLiveData
 import com.example.virtual_assigment.util.AppConstant
 import javax.inject.Inject

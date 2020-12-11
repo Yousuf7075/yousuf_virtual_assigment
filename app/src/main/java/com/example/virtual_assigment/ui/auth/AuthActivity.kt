@@ -7,7 +7,7 @@ import com.example.virtual_assigment.R
 import com.example.virtual_assigment.base.BaseActivity
 import com.example.virtual_assigment.databinding.ActivityAuthBinding
 import com.example.virtual_assigment.network.wrapper.ApiResponse
-import com.example.virtual_assigment.network_model.AuthRequest
+import com.example.virtual_assigment.network_model.auth.AuthRequest
 import com.example.virtual_assigment.util.ScreenNavigator
 import timber.log.Timber
 
@@ -30,9 +30,10 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
             dataBinding.editTexUserName.text.toString(),
             dataBinding.editTextPassword.text.toString())
 
-        viewModel.userAuth(authRequest).observe(this, Observer {apiResponse->
+        viewModel.userAuth(authRequest).observe(this, { apiResponse->
             when(apiResponse){
                 is ApiResponse.Success->{
+                    showProgressBar(false, dataBinding.progressBar)
                     if (apiResponse.data.success){
                         ScreenNavigator.navigateToInformationCollectActivity(this)
                     }
@@ -41,14 +42,15 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
                     showProgressBar(true, dataBinding.progressBar)
                 }
                 is ApiResponse.Failure->{
-                    Timber.e(apiResponse.errorMessage.localizedMessage)
+                    showProgressBar(false, dataBinding.progressBar)
+                    showMessage(apiResponse.errorMessage.localizedMessage)
                 }
 
                 else -> {}
             }
         })
 
-        viewModel.ioError.observe(this, Observer {
+        viewModel.ioError.observe(this, {
             showMessage(it)
         })
     }

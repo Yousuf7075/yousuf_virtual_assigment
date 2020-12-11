@@ -1,4 +1,4 @@
-package com.example.virtual_assigment.network_model
+package com.example.virtual_assigment.network_model.auth
 
 
 import com.google.gson.annotations.SerializedName

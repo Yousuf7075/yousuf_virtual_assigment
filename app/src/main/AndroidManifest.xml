@@ -15,11 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Virtual_assigment"
         android:usesCleartextTraffic="true"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup"
+        tools:targetApi="m">
 
 
         <!-- activities -->
-        <activity android:name=".ui.InformationCollectActivity" />
+        <activity android:name=".ui.entities.EntitiesActivity" />
         <activity android:name=".ui.auth.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
