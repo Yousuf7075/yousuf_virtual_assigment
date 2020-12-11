@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">virtual_assigment</string>
+    <string name="user_name">User Name</string>
+    <string name="enter_user_name">enter user name</string>
+    <string name="enter_password">enter password</string>
+    <string name="password">Password</string>
+    <string name="login">login</string>
 </resources>

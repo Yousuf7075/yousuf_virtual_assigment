@@ -3,7 +3,7 @@ package com.example.virtual_assigment.di_editable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.di.ViewModelKey
-import com.example.virtual_assigment.ui.AuthViewModel
+import com.example.virtual_assigment.ui.auth.AuthViewModel
 import com.example.virtual_assigment.viewmodel.AppViewModelFactory
 import dagger.Binds
 import dagger.Module

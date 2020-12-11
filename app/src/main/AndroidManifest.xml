@@ -10,9 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Virtual_assigment">
-
-        <!--activities-->
-        <activity android:name=".ui.AuthActivity">
+        <activity android:name=".ui.InformationCollectActivity"></activity>
+        <!-- activities -->
+        <activity android:name=".ui.auth.AuthActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
