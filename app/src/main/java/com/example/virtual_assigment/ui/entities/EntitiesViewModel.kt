@@ -76,12 +76,13 @@ class EntitiesViewModel  @Inject constructor(private var repo: EntitiesRepo): Vi
     }
 
     fun uploadFileToServer(file_token_id: Int, file:File): LiveData<ApiResponse<FileUploadResponse>>{
-        return if (!file.exists()){
+        return repo.uploadFile(file_token_id, file)
+        /*return if (!file.exists()){
             ioError.value = "file field can't be empty"
             AbsentLiveData.create()
         }else{
             repo.uploadFile(file_token_id, file)
-        }
+        }*/
     }
 
 }

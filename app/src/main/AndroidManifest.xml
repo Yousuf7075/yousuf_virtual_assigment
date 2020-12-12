@@ -19,6 +19,7 @@
         android:theme="@style/Theme.Virtual_assigment"
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup"
+        android:requestLegacyExternalStorage="true"
         tools:targetApi="m">
 
 

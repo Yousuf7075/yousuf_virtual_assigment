@@ -13,6 +13,7 @@ import io.reactivex.disposables.CompositeDisposable
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
@@ -34,7 +35,7 @@ class EntitiesRepo @Inject constructor(@MainApiUrl var api: ApiService) {
         val fileName = file.name
         Timber.e("sending file name : $fileName")
 
-        val part = MultipartBody.Part.createFormData("file", file.name, RequestBody.create("pdf/*".toMediaTypeOrNull(), file))
+        val part = MultipartBody.Part.createFormData("file", file.name, file.asRequestBody("application/pdf".toMediaTypeOrNull()))
 
         return object : NetworkBoundResource<FileUploadResponse>(){
             override fun createCall(): Single<FileUploadResponse> = api.uploadFile(file_token_id, part)

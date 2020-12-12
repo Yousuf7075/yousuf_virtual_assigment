@@ -19,7 +19,7 @@ interface ApiService {
     fun postEntities(@Body entitiesRequest: EntitiesRequest): Single<EntitiesResponse>
 
     @Multipart
-    @POST("api/file-object/{file_token_id}/")
+    @PUT("api/file-object/{file_token_id}/")
     fun uploadFile(
             @Path("file_token_id") file_token_id: Int,
             @Part file: MultipartBody.Part
