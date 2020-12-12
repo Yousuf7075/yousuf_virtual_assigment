@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModel
 import com.example.virtual_assigment.network.wrapper.ApiResponse
 import com.example.virtual_assigment.network_model.entities.EntitiesRequest
 import com.example.virtual_assigment.network_model.entities.EntitiesResponse
+import com.example.virtual_assigment.network_model.upload_file.FileUploadResponse
 import com.example.virtual_assigment.util.AbsentLiveData
+import java.io.File
 import javax.inject.Inject
 
 class EntitiesViewModel  @Inject constructor(private var repo: EntitiesRepo): ViewModel() {
@@ -72,4 +74,14 @@ class EntitiesViewModel  @Inject constructor(private var repo: EntitiesRepo): Vi
             }
         }
     }
+
+    fun uploadFileToServer(file_token_id: Int, file:File): LiveData<ApiResponse<FileUploadResponse>>{
+        return if (!file.exists()){
+            ioError.value = "file field can't be empty"
+            AbsentLiveData.create()
+        }else{
+            repo.uploadFile(file_token_id, file)
+        }
+    }
+
 }
