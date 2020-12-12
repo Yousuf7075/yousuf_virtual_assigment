@@ -15,7 +15,7 @@ interface ApiService {
     @POST("api/login/")
     fun userAuth(@Body authRequest: AuthRequest): Single<AuthResponse>
 
-    @POST("api/v0/recruiting-entities/")
+    @POST("api/v1/recruiting-entities/")
     fun postEntities(@Body entitiesRequest: EntitiesRequest): Single<EntitiesResponse>
 
     @Multipart
