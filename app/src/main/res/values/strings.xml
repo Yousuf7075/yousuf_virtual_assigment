@@ -32,4 +32,7 @@
     <string name="github_project_url">Github Project Url</string>
     <string name="enter_github_project_url">enter github project url</string>
     <string name="submit">submit</string>
+    <string name="please_attach_cv_here">Please attach cv here</string>
+    <string name="example_pdf">example.pdf</string>
+    <string name="todo">TODO</string>
 </resources>

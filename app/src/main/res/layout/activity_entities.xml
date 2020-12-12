@@ -429,14 +429,52 @@
                         android:textColorHint="@color/textHint"
                         tools:ignore="TextFields"/>
 
-                    <ImageView
-                        android:id="@+id/btnAddFile"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/add_file"
                         app:layout_constraintTop_toBottomOf="@id/editTextGithubProjectUrl"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/attachCvTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/please_attach_cv_here"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/_13ssp"/>
+
+                        <LinearLayout
+                            android:id="@+id/btnAttchFile"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="@dimen/_80sdp"
+                            android:orientation="vertical"
+                            android:background="@drawable/circular_background"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/add_file"
+                                android:contentDescription="@string/todo" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/cvFileNameTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/example_pdf"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_13ssp"
+                            android:layout_marginTop="@dimen/_10sdp"/>
+
+                    </LinearLayout>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

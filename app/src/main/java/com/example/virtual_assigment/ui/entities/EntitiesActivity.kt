@@ -2,10 +2,7 @@ package com.example.virtual_assigment.ui.entities
 
 
 import android.content.Intent
-import android.database.Cursor
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.R
 import com.example.virtual_assigment.base.BaseActivity
@@ -15,7 +12,6 @@ import com.example.virtual_assigment.network.wrapper.ApiResponse
 import com.example.virtual_assigment.network_model.entities.CvFileRQ
 import com.example.virtual_assigment.network_model.entities.EntitiesRequest
 import com.example.virtual_assigment.util.PermissionHandler
-import timber.log.Timber
 import java.io.File
 import java.util.*
 
@@ -26,7 +22,7 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
     override fun layoutRes(): Int = R.layout.activity_entities
 
     private val fileRequestCode = 123
-    private lateinit var filePath: Uri
+    private lateinit var cvFile: File
 
 
     private lateinit var viewModel: EntitiesViewModel
@@ -36,7 +32,8 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
         dataBinding.lifecycleOwner
         viewModel = ViewModelProvider(this, viewModelFactory).get(EntitiesViewModel::class.java)
 
-        dataBinding.btnAddFile.setOnClickListener {
+        cvFile = File("null")
+        dataBinding.btnAttchFile.setOnClickListener {
             if(PermissionHandler.checkPermissionForReadExternalStorage(this)){
                 selectFile()
             }else{
@@ -52,15 +49,17 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == fileRequestCode){
-            filePath = data?.data!!
+            val filePath = data?.data!!
+            cvFile = File(getRealPathFromURI(applicationContext, filePath))
+            dataBinding.cvFileNameTv.text = cvFile.name
         }
     }
 
     private fun selectFile() {
         val intent = Intent()
-        intent.type = "application/pdf";
-        intent.action = Intent.ACTION_GET_CONTENT;
-        startActivityForResult(Intent.createChooser(intent, "Select Pdf"), fileRequestCode);
+        intent.type = "application/pdf"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Pdf"), fileRequestCode)
     }
 
     private fun postEntities() {
@@ -137,10 +136,8 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
     }
 
     private fun uploadFileToServer(file_token_id: Int) {
-        val file = File(getRealPathFromURI(applicationContext, filePath))
-        Timber.e(file.toString())
 
-        viewModel.uploadFileToServer(file_token_id, file).observe(this, { apiResponse ->
+        viewModel.uploadFileToServer(file_token_id, cvFile).observe(this, { apiResponse ->
             when (apiResponse) {
                 is ApiResponse.Success -> {
                     showProgressBar(false, dataBinding.progressBar)
@@ -161,27 +158,4 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
             showMessage(it)
         })
     }
-
-    /*fun getPath(uri: Uri?): String? {
-        val projection = arrayOf(MediaStore.Images.Media.DATA)
-        val cursor: Cursor = managedQuery(uri, projection, null, null, null)
-        startManagingCursor(cursor)
-        val column_index: Int = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
-        cursor.moveToFirst()
-        return cursor.getString(column_index)
-    }
-
-    private fun getRealPathFromURI(contentURI: Uri): String? {
-        val result: String?
-        val cursor = contentResolver.query(contentURI, null, null, null, null)
-        if (cursor == null) { // Source is Dropbox or other similar local file path
-            result = contentURI.path
-        } else {
-            cursor.moveToFirst()
-            val idx = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-            result = cursor.getString(idx)
-            cursor.close()
-        }
-        return result
-    }*/
 }
