@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.R
 import com.example.virtual_assigment.base.BaseActivity
 import com.example.virtual_assigment.databinding.ActivityEntitiesBinding
+import com.example.virtual_assigment.helper.getRealPathFromURI
 import com.example.virtual_assigment.network.wrapper.ApiResponse
 import com.example.virtual_assigment.network_model.entities.CvFileRQ
 import com.example.virtual_assigment.network_model.entities.EntitiesRequest
@@ -25,7 +26,7 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
     override fun layoutRes(): Int = R.layout.activity_entities
 
     private val fileRequestCode = 123
-    lateinit var filePath: Uri
+    private lateinit var filePath: Uri
 
 
     private lateinit var viewModel: EntitiesViewModel
@@ -65,25 +66,49 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
     private fun postEntities() {
         val uniqueID: String = UUID.randomUUID().toString()
         val cvFileRQ = CvFileRQ(uniqueID)
+
+        val cgpa: Double = if (dataBinding.editTextCgpa.text.toString().isEmpty()){
+            0.0
+        }else{
+            dataBinding.editTextCgpa.text.toString().toDouble()
+        }
+
+        val expectedSalary: Int = if (dataBinding.editTextExpectedSalary.text.toString().isEmpty()){
+            0
+        }else{
+            dataBinding.editTextExpectedSalary.text.toString().toInt()
+        }
+
+        val experienceInMonth: Int = if (dataBinding.editTextExperienceInMonth.text.toString().isEmpty()){
+            0
+        }else{
+            dataBinding.editTextExperienceInMonth.text.toString().toInt()
+        }
+
+        val graduationYear: Int = if (dataBinding.editTextGraduationYear.text.toString().isEmpty()){
+            0
+        }else{
+            dataBinding.editTextGraduationYear.text.toString().toInt()
+        }
+
         val entitiesRequest = EntitiesRequest(
             dataBinding.editTextApplyingIn.text.toString(),
-            dataBinding.editTextCgpa.text.toString().toDouble(),
+            cgpa,
             dataBinding.editTextCurrentWorkPlaceName.text.toString(),
             cvFileRQ,
             dataBinding.editTextUserEmail.text.toString(),
-            dataBinding.editTextExpectedSalary.text.toString().toInt(),
-            dataBinding.editTextExperienceInMonth.text.toString().toInt(),
+            expectedSalary,
+            experienceInMonth,
             dataBinding.editTextFieldBuzzReference.text.toString(),
             dataBinding.editTexAddress.text.toString(),
             dataBinding.editTextGithubProjectUrl.text.toString(),
-            dataBinding.editTextGraduationYear.text.toString().toInt(),
+            graduationYear,
             dataBinding.editTextUserName.text.toString(),
             dataBinding.editTextUniversityName.text.toString(),
             1605644298704,
             1605644298702,
             dataBinding.editTextPhoneNumber.text.toString(),
-            uniqueID
-        )
+            uniqueID)
 
         viewModel.postEntities(entitiesRequest).observe(this, { apiResponse ->
             when (apiResponse) {
@@ -112,7 +137,7 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
     }
 
     private fun uploadFileToServer(file_token_id: Int) {
-        val file = File(getRealPathFromURI(filePath))
+        val file = File(getRealPathFromURI(applicationContext, filePath))
         Timber.e(file.toString())
 
         viewModel.uploadFileToServer(file_token_id, file).observe(this, { apiResponse ->
@@ -137,7 +162,7 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
         })
     }
 
-    fun getPath(uri: Uri?): String? {
+    /*fun getPath(uri: Uri?): String? {
         val projection = arrayOf(MediaStore.Images.Media.DATA)
         val cursor: Cursor = managedQuery(uri, projection, null, null, null)
         startManagingCursor(cursor)
@@ -158,5 +183,5 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
             cursor.close()
         }
         return result
-    }
+    }*/
 }

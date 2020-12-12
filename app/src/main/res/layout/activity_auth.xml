@@ -19,7 +19,7 @@
             android:text="@string/user_name"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/_13ssp"
-            android:layout_marginTop="@dimen/_150sdp"
+            android:layout_marginTop="@dimen/_100sdp"
             android:layout_marginStart="@dimen/_5sdp"/>
 
         <EditText

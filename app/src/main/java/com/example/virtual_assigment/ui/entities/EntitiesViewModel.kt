@@ -37,15 +37,15 @@ class EntitiesViewModel  @Inject constructor(private var repo: EntitiesRepo): Vi
                 ioError.value = "name of university can't be empty"
                 AbsentLiveData.create()
             }
-            entitiesRequest.graduationYear.toString().isEmpty() ->{
+            entitiesRequest.graduationYear == 0 ->{
                 ioError.value = "graduation year can't be empty"
                 AbsentLiveData.create()
             }
-            entitiesRequest.cgpa.toString().isEmpty() ->{
+            entitiesRequest.cgpa == 0.0 ->{
                 ioError.value = "cgpa can't be empty"
                 AbsentLiveData.create()
             }
-            entitiesRequest.experienceInMonths.toString().isEmpty() ->{
+            entitiesRequest.experienceInMonths == 0 ->{
                 ioError.value = "experience in month can't be empty"
                 AbsentLiveData.create()
             }
@@ -57,7 +57,7 @@ class EntitiesViewModel  @Inject constructor(private var repo: EntitiesRepo): Vi
                 ioError.value = "applying In can't be empty"
                 AbsentLiveData.create()
             }
-            entitiesRequest.expectedSalary.toString().isEmpty() ->{
+            entitiesRequest.expectedSalary == 0 ->{
                 ioError.value = "expected salary can't be empty"
                 AbsentLiveData.create()
             }
@@ -76,13 +76,12 @@ class EntitiesViewModel  @Inject constructor(private var repo: EntitiesRepo): Vi
     }
 
     fun uploadFileToServer(file_token_id: Int, file:File): LiveData<ApiResponse<FileUploadResponse>>{
-        return repo.uploadFile(file_token_id, file)
-        /*return if (!file.exists()){
+        return if (!file.exists()){
             ioError.value = "file field can't be empty"
             AbsentLiveData.create()
         }else{
             repo.uploadFile(file_token_id, file)
-        }*/
+        }
     }
 
 }
