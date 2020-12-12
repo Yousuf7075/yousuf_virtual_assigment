@@ -24,8 +24,13 @@
 
 
         <!-- activities -->
-        <activity android:name=".ui.entities.EntitiesActivity" />
-        <activity android:name=".ui.auth.AuthActivity">
+        <activity android:name=".ui.entities.EntitiesActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
+
+        <activity android:name=".ui.auth.AuthActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

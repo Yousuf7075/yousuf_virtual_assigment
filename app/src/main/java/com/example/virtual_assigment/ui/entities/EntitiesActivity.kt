@@ -3,6 +3,8 @@ package com.example.virtual_assigment.ui.entities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.R
 import com.example.virtual_assigment.base.BaseActivity
@@ -52,6 +54,7 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
             val filePath = data?.data!!
             cvFile = File(getRealPathFromURI(applicationContext, filePath))
             dataBinding.cvFileNameTv.text = cvFile.name
+            dataBinding.cvFileNameTv.visibility = View.VISIBLE
         }
     }
 
@@ -141,6 +144,9 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
             when (apiResponse) {
                 is ApiResponse.Success -> {
                     showProgressBar(false, dataBinding.progressBar)
+                    if (apiResponse.data.success){
+                        Toast.makeText(applicationContext, apiResponse.data.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
                 is ApiResponse.Progress -> {
                     showProgressBar(true, dataBinding.progressBar)

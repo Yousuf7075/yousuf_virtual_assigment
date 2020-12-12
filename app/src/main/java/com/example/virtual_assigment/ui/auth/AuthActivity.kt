@@ -1,6 +1,7 @@
 package com.example.virtual_assigment.ui.auth
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.R
@@ -35,6 +36,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
                 is ApiResponse.Success->{
                     showProgressBar(false, dataBinding.progressBar)
                     if (apiResponse.data.success){
+                        Toast.makeText(applicationContext, "Login Success", Toast.LENGTH_SHORT).show()
                         ScreenNavigator.navigateToInformationCollectActivity(this)
                     }
                 }

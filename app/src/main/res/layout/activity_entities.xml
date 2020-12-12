@@ -27,301 +27,314 @@
                         android:id="@+id/user_name_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
                         android:text="@string/name"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <EditText
                         android:id="@+id/editTextUserName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/user_name_tv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_your_name"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_name_tv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/user_email_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextUserName"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/email"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextUserName" />
 
                     <EditText
                         android:id="@+id/editTextUserEmail"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/user_email_tv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_email"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_email_tv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/user_phone_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextUserEmail"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/phone"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextUserEmail" />
 
                     <EditText
                         android:id="@+id/editTextPhoneNumber"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/user_phone_tv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_phone_number"
+                        android:imeOptions="actionNext"
                         android:inputType="number"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_phone_tv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/user_address_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/address"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber" />
 
                     <EditText
                         android:id="@+id/editTexAddress"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/user_address_tv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_address"
-                        android:inputType="text"
-                        android:maxLines="1"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:scrollbars="vertical"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/user_address_tv"
+                        tools:ignore="TextFields" />
 
                     <TextView
                         android:id="@+id/universityNameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTexAddress"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/university_name"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTexAddress" />
 
                     <EditText
                         android:id="@+id/editTextUniversityName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/universityNameTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_university_name"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/universityNameTv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/graduationYearTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextUniversityName"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/graduation_year"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextUniversityName" />
 
                     <EditText
                         android:id="@+id/editTextGraduationYear"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/graduationYearTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_graduation_year"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/graduationYearTv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/cgpaTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextGraduationYear"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/cgpa"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextGraduationYear" />
 
                     <EditText
                         android:id="@+id/editTextCgpa"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/cgpaTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_cgpa"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cgpaTv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/experienceInMonthTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextCgpa"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/experience_in_month"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextCgpa" />
 
                     <EditText
                         android:id="@+id/editTextExperienceInMonth"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/experienceInMonthTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_experience"
+                        android:imeOptions="actionNext"
                         android:inputType="number"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/experienceInMonthTv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/currentWorkPlaceNameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextExperienceInMonth"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/current_work_place"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextExperienceInMonth" />
 
                     <EditText
                         android:id="@+id/editTextCurrentWorkPlaceName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/currentWorkPlaceNameTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_current_work_place"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/currentWorkPlaceNameTv"
+                        tools:ignore="TextFields" />
 
                     <TextView
                         android:id="@+id/applyingInTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextCurrentWorkPlaceName"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/applying_in"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextCurrentWorkPlaceName" />
 
                     <EditText
                         android:id="@+id/editTextApplyingIn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/applyingInTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
@@ -333,111 +346,119 @@
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/applyingInTv"
+                        tools:ignore="TextFields" />
 
                     <TextView
                         android:id="@+id/expectedSalaryTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextApplyingIn"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/expected_salary"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextApplyingIn" />
 
                     <EditText
                         android:id="@+id/editTextExpectedSalary"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/expectedSalaryTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_expected_salary"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/expectedSalaryTv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/fieldBuzzReferenceTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextExpectedSalary"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/fieldbuzz_reference"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextExpectedSalary" />
 
                     <EditText
                         android:id="@+id/editTextFieldBuzzReference"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/fieldBuzzReferenceTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_reference"
+                        android:imeOptions="actionNext"
                         android:inputType="text"
                         android:maxLines="1"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/fieldBuzzReferenceTv"
+                        tools:ignore="TextFields" />
+
                     <TextView
                         android:id="@+id/githubProjectUrlTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextFieldBuzzReference"
-                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
                         android:text="@string/github_project_url"
                         android:textColor="@color/colorAccent"
                         android:textSize="@dimen/_13ssp"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_15sdp"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/editTextFieldBuzzReference" />
 
                     <EditText
                         android:id="@+id/editTextGithubProjectUrl"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/githubProjectUrlTv"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/edit_text_background"
                         android:drawablePadding="@dimen/_7sdp"
                         android:ems="10"
                         android:hint="@string/enter_github_project_url"
-                        android:inputType="text"
-                        android:maxLines="1"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine"
                         android:paddingStart="@dimen/_10ssp"
                         android:paddingEnd="@dimen/_10ssp"
+                        android:scrollbars="vertical"
                         android:textColor="@color/textPrimary"
                         android:textColorHint="@color/textHint"
-                        tools:ignore="TextFields"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/githubProjectUrlTv"
+                        tools:ignore="TextFields" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/editTextGithubProjectUrl"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:gravity="center"
+                        android:orientation="vertical"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        android:orientation="vertical"
-                        android:layout_marginTop="@dimen/_15sdp"
-                        android:gravity="center">
+                        app:layout_constraintTop_toBottomOf="@id/editTextGithubProjectUrl">
 
                         <TextView
                             android:id="@+id/attachCvTv"
@@ -445,22 +466,22 @@
                             android:layout_height="wrap_content"
                             android:text="@string/please_attach_cv_here"
                             android:textColor="@color/colorAccent"
-                            android:textSize="@dimen/_13ssp"/>
+                            android:textSize="@dimen/_13ssp" />
 
                         <LinearLayout
                             android:id="@+id/btnAttchFile"
                             android:layout_width="@dimen/_80sdp"
                             android:layout_height="@dimen/_80sdp"
-                            android:orientation="vertical"
-                            android:background="@drawable/circular_background"
                             android:layout_marginTop="@dimen/_10sdp"
-                            android:gravity="center">
+                            android:background="@drawable/circular_background"
+                            android:gravity="center"
+                            android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/add_file"
-                                android:contentDescription="@string/todo" />
+                                android:contentDescription="@string/todo"
+                                android:src="@drawable/add_file" />
 
                         </LinearLayout>
 
@@ -468,10 +489,11 @@
                             android:id="@+id/cvFileNameTv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
                             android:text="@string/example_pdf"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_13ssp"
-                            android:layout_marginTop="@dimen/_10sdp"/>
+                            android:visibility="gone" />
 
                     </LinearLayout>
 
