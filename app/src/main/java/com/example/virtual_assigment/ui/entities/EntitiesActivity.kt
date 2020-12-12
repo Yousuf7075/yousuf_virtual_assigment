@@ -14,6 +14,7 @@ import com.example.virtual_assigment.network.wrapper.ApiResponse
 import com.example.virtual_assigment.network_model.entities.CvFileRQ
 import com.example.virtual_assigment.network_model.entities.EntitiesRequest
 import com.example.virtual_assigment.util.PermissionHandler
+import timber.log.Timber
 import java.io.File
 import java.util.*
 
@@ -67,6 +68,9 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
 
     private fun postEntities() {
         val uniqueID: String = UUID.randomUUID().toString()
+        val onSpotCreationTime = System.currentTimeMillis()
+        val onSpotUpdateTime = System.currentTimeMillis()
+
         val cvFileRQ = CvFileRQ(uniqueID)
 
         val cgpa: Double = if (dataBinding.editTextCgpa.text.toString().isEmpty()){
@@ -107,8 +111,8 @@ class EntitiesActivity : BaseActivity<ActivityEntitiesBinding>() {
             graduationYear,
             dataBinding.editTextUserName.text.toString(),
             dataBinding.editTextUniversityName.text.toString(),
-            1605644298704,
-            1605644298702,
+            onSpotCreationTime,
+            onSpotUpdateTime,
             dataBinding.editTextPhoneNumber.text.toString(),
             uniqueID)
 

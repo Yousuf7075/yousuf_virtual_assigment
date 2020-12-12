@@ -2,7 +2,6 @@ package com.example.virtual_assigment.ui.auth
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.virtual_assigment.R
 import com.example.virtual_assigment.base.BaseActivity
@@ -29,26 +28,29 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>() {
     private fun observeViewModel() {
         val authRequest = AuthRequest(
             dataBinding.editTexUserName.text.toString(),
-            dataBinding.editTextPassword.text.toString())
+            dataBinding.editTextPassword.text.toString()
+        )
 
-        viewModel.userAuth(authRequest).observe(this, { apiResponse->
-            when(apiResponse){
-                is ApiResponse.Success->{
+        viewModel.userAuth(authRequest).observe(this, { apiResponse ->
+            when (apiResponse) {
+                is ApiResponse.Success -> {
                     showProgressBar(false, dataBinding.progressBar)
-                    if (apiResponse.data.success){
-                        Toast.makeText(applicationContext, "Login Success", Toast.LENGTH_SHORT).show()
+                    if (apiResponse.data.success) {
+                        Toast.makeText(applicationContext, "Login Success", Toast.LENGTH_SHORT)
+                            .show()
                         ScreenNavigator.navigateToInformationCollectActivity(this)
                     }
                 }
-                is ApiResponse.Progress->{
+                is ApiResponse.Progress -> {
                     showProgressBar(true, dataBinding.progressBar)
                 }
-                is ApiResponse.Failure->{
+                is ApiResponse.Failure -> {
                     showProgressBar(false, dataBinding.progressBar)
                     showMessage(apiResponse.errorMessage.localizedMessage)
                 }
 
-                else -> {}
+                else -> {
+                }
             }
         })
 
